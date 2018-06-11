@@ -17,3 +17,30 @@ td {
     vertical-align: top;
     padding-right: 60px;
 }
+/*
+CSS-Grid
+*/
+.container {
+    margin-left:50px;
+    margin-right: 50px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(900px);
+}
+
+.wrapper {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 900px 200px 200px;
+}
+
+.itemRadar {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
