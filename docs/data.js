@@ -222,7 +222,21 @@ export default {
             ring: 3,
             label: 'RASA NLU',
             active: false,
-            moved: -1
+            moved: 1
+        },
+        {
+            quadrant: 2,
+            ring: 0,
+            label: 'scikit-learn',
+            active: false,
+            moved: 0
+        },
+        {
+            quadrant: 2,
+            ring: 0,
+            label: 'txtwerk',
+            active: false,
+            moved: 1
         },
         //
         // Data Management
@@ -233,6 +247,41 @@ export default {
             label: 'PostgreSQL',
             active: false,
             moved: 1
+        },
+        {
+            quadrant: 3,
+            ring: 0,
+            label: 'Kafka',
+            active: false,
+            moved: 0
+        },
+ 	{
+            quadrant: 3,
+            ring: 0,
+            label: 'SOLR',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 0,
+            label: 'Elasticsearch',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 0,
+            label: 'SPARK',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 0,
+            label: 'Kibana',
+            active: false,
+            moved: 0
         }
     ]
 };
