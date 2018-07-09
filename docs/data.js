@@ -212,7 +212,7 @@ export default {
         },
         {
             quadrant: 2,
-            ring: 3,
+            ring: 2,
             label: 'Coffeescript',
             active: false,
             moved: -1
