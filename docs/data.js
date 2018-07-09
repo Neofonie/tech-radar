@@ -217,6 +217,13 @@ export default {
             active: false,
             moved: -1
         },
+        {
+            quadrant: 2,
+            ring: 3,
+            label: 'RASA NLU',
+            active: false,
+            moved: -1
+        },
         //
         // Data Management
         //
