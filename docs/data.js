@@ -60,7 +60,7 @@ export default {
  	{
             quadrant: 0,
             ring: 0,
-            label: 'Sagemaker',
+            label: 'Amazon Sagemaker',
             active: false,
             moved: 0
         },
