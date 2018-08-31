@@ -36,12 +36,68 @@ export default {
             active: false,
             moved: 0
         },
-        {
+ 	{
             quadrant: 0,
             ring: 0,
+            label: 'Python',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 0,
+            ring: 0,
+            label: 'Go',
+            active: false,
+            moved: 0
+        },
+ 	{
+            quadrant: 0,
+            ring: 0,
+            label: 'Scala',
+            active: false,
+            moved: 0
+        },
+ 	{
+            quadrant: 0,
+            ring: 0,
+            label: 'Sagemaker',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 0,
+            ring: 1,
+            label: 'Ruby',
+            active: false,
+            moved: 0
+        },
+ 	{
+            quadrant: 0,
+            ring: 1,
+            label: 'AngularJS',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 0,
+            ring: 1,
+            label: 'R',
+            active: false,
+            moved: 0
+        },
+        {
+            quadrant: 0,
+            ring: 2,
             label: 'node.js',
             active: false,
-            moved: 1
+            moved: 0
+        },
+ 	{
+            quadrant: 0,
+            ring: 3,
+            label: 'Clojure',
+            active: false,
+            moved: 0
         },
         //
         // Infrastructure
@@ -53,55 +109,104 @@ export default {
             active: false,
             moved: 0
         },
+	{
+            quadrant: 1,
+            ring: 0,
+            label: 'Docker-Swarm',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 1,
+            ring: 2,
+            label: 'Kubernetes',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 1,
+            ring: 2,
+            label: 'AWS ML / Lambda',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 1,
+            ring: 2,
+            label: 'Microsoft Azure',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 1,
+            ring: 2,
+            label: 'Google Cloud',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 1,
+            ring: 2,
+            label: 'Jupyter',
+            active: false,
+            moved: 0
+        },
         //
         // Frameworks
         //
         {
             quadrant: 2,
             ring: 0,
-            label: 'React',
+            label: 'MXNet',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 2,
+            ring: 0,
+            label: 'OpenNLP',
             active: false,
             moved: 0
         },
         {
             quadrant: 2,
             ring: 0,
-            label: 'Gulp',
+            label: 'Spring Boot',
             active: false,
             moved: 0
         },
         {
             quadrant: 2,
             ring: 0,
-            label: 'Flexbox',
+            label: 'Word2Vec',
             active: false,
             moved: 0
         },
         {
             quadrant: 2,
             ring: 0,
-            label: 'Sass',
+            label: 'Keras',
             active: false,
             moved: 0
         },
         {
             quadrant: 2,
             ring: 1,
-            label: 'Vue.js',
+            label: 'Mallet',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 2,
             ring: 1,
-            label: 'Webpack',
+            label: 'TensorFlow',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 2,
             ring: 1,
-            label: 'Redux',
+            label: 'Theano',
             active: false,
             moved: 0
         },
@@ -115,107 +220,51 @@ export default {
         {
             quadrant: 2,
             ring: 1,
-            label: 'TestCafe',
+            label: 'Scrapy',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 2,
+            ring: 1,
+            label: 'Tesseract',
             active: false,
             moved: 0
         },
         {
             quadrant: 2,
             ring: 2,
-            label: 'CSS-in-JS',
+            label: 'Deeplearning4j',
             active: false,
             moved: 0
         },
         {
             quadrant: 2,
             ring: 2,
-            label: 'CSSnext',
+            label: 'AllenNLP',
             active: false,
             moved: 0
         },
         {
             quadrant: 2,
             ring: 2,
-            label: 'Yarn',
+            label: 'Fast.AI',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 2,
             ring: 2,
-            label: 'CSS Grid',
+            label: 'PyTorch',
             active: false,
             moved: 1
         },
         {
             quadrant: 2,
             ring: 2,
-            label: 'Typescript',
-            active: false,
-            moved: -1
-        },
-        {
-            quadrant: 2,
-            ring: 2,
-            label: 'Flow',
+            label: 'Spacy',
             active: false,
             moved: 0
-        },
-        {
-            quadrant: 2,
-            ring: 2,
-            label: 'Progressive Web Apps',
-            active: false,
-            moved: 0
-        },
-        {
-            quadrant: 2,
-            ring: 2,
-            label: 'Next.js',
-            active: false,
-            moved: 0
-        },
-        {
-            quadrant: 2,
-            ring: 3,
-            label: 'Backbone',
-            active: false,
-            moved: -1
-        },
-        {
-            quadrant: 2,
-            ring: 3,
-            label: 'Bower',
-            active: false,
-            moved: -1
-        },
-        {
-            quadrant: 2,
-            ring: 3,
-            label: 'Grunt',
-            active: false,
-            moved: -1
-        },
-        {
-            quadrant: 2,
-            ring: 3,
-            label: 'Angular',
-            active: false,
-            moved: -1
-        },
-        {
-            quadrant: 2,
-            ring: 3,
-            label: 'Less',
-            active: false,
-            moved: -1
-        },
-        {
-            quadrant: 2,
-            ring: 2,
-            label: 'Coffeescript',
-            active: false,
-            moved: -1
         },
         {
             quadrant: 2,
@@ -223,13 +272,6 @@ export default {
             label: 'RASA NLU',
             active: false,
             moved: 1
-        },
-        {
-            quadrant: 2,
-            ring: 0,
-            label: 'scikit-learn',
-            active: false,
-            moved: 0
         },
         {
             quadrant: 2,
@@ -243,22 +285,15 @@ export default {
         //
         {
             quadrant: 3,
-            ring: 1,
-            label: 'PostgreSQL',
-            active: false,
-            moved: 1
-        },
-        {
-            quadrant: 3,
             ring: 0,
-            label: 'Kafka',
+            label: 'Apache Kafka',
             active: false,
             moved: 0
         },
  	{
             quadrant: 3,
             ring: 0,
-            label: 'SOLR',
+            label: 'Apache SOLR',
             active: false,
             moved: 0
         },
@@ -272,16 +307,80 @@ export default {
 	{
             quadrant: 3,
             ring: 0,
-            label: 'SPARK',
+            label: 'Tableau',
             active: false,
             moved: 0
         },
 	{
             quadrant: 3,
-            ring: 0,
-            label: 'Kibana',
+            ring: 1,
+            label: 'Apache Cassandra',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 1,
+            label: 'Apache Spark',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 1,
+            label: 'Apache Beam',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 1,
+            label: 'Redis',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 1,
+            label: 'Apache Zeppelin',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 2,
+            label: 'Apache Flink',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 3,
+            label: 'Ontotext GraphDB',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 3,
+            label: 'Apache Flume',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 3,
+            label: 'Virtuoso',
+            active: false,
+            moved: 0
+        },
+	{
+            quadrant: 3,
+            ring: 3,
+            label: 'Apache Pig',
             active: false,
             moved: 0
         }
+	
     ]
 };
