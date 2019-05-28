@@ -645,14 +645,14 @@ export default {
             ring: 0,
             label: 'Symfony',
             active: false,
-            moved: 0
+            moved: 1
         },
         {
             quadrant: 3,
             ring: 0,
             label: 'smarty',
             active: false,
-            moved: 0
+            moved: -1
         },
         {
             quadrant: 3,
@@ -684,10 +684,10 @@ export default {
         },
         {
             quadrant: 3,
-            ring: 2,
+            ring: 0,
             label: 'twig',
             active: false,
-            moved: 0
+            moved: 1
         },
         {
             quadrant: 3,
