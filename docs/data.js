@@ -266,6 +266,13 @@ export default {
         {
             quadrant: 1,
             ring: 0,
+            label: 'CSS Flexbox',
+            active: false,
+            moved: 0
+        },
+        {
+            quadrant: 1,
+            ring: 0,
             label: 'Greensock GSAP',
             active: false,
             moved: 0
@@ -280,35 +287,49 @@ export default {
         {
             quadrant: 1,
             ring: 0,
-            label: 'Gulp',
-            active: false,
-            moved: 0
-        },
-        {
-            quadrant: 1,
-            ring: 0,
-            label: 'CSS Flexbox',
-            active: false,
-            moved: 0
-        },
-        {
-            quadrant: 1,
-            ring: 0,
             label: 'Sass',
             active: false,
             moved: 0
         },
         {
             quadrant: 1,
-            ring: 1,
+            ring: 0,
             label: 'Vue.js',
+            active: false,
+            moved: 1
+        },
+        {
+            quadrant: 1,
+            ring: 0,
+            label: 'Webpack',
+            active: false,
+            moved: 1
+        },
+        {
+            quadrant: 1,
+            ring: 1,
+            label: 'CSS-in-JS',
             active: false,
             moved: 0
         },
         {
             quadrant: 1,
             ring: 1,
-            label: 'Webpack',
+            label: 'CSS Grid',
+            active: false,
+            moved: 0
+        },
+        {
+            quadrant: 1,
+            ring: 1,
+            label: 'Gulp',
+            active: false,
+            moved: -1
+        },
+        {
+            quadrant: 1,
+            ring: 1,
+            label: 'Jest',
             active: false,
             moved: 0
         },
@@ -322,21 +343,7 @@ export default {
         {
             quadrant: 1,
             ring: 1,
-            label: 'jest',
-            active: false,
-            moved: 0
-        },
-        {
-            quadrant: 1,
-            ring: 1,
             label: 'TestCafe',
-            active: false,
-            moved: 0
-        },
-        {
-            quadrant: 1,
-            ring: 2,
-            label: 'CSS-in-JS',
             active: false,
             moved: 0
         },
@@ -350,16 +357,9 @@ export default {
         {
             quadrant: 1,
             ring: 2,
-            label: 'Yarn',
+            label: 'Svelte',
             active: false,
-            moved: 0
-        },
-        {
-            quadrant: 1,
-            ring: 1,
-            label: 'CSS Grid',
-            active: false,
-            moved: 0
+            moved: 1
         },
         {
             quadrant: 1,
@@ -371,9 +371,30 @@ export default {
         {
             quadrant: 1,
             ring: 2,
+            label: 'Express',
+            active: false,
+            moved: 0
+        },
+        {
+            quadrant: 1,
+            ring: 2,
             label: 'Flow',
             active: false,
             moved: 0
+        },
+        {
+            quadrant: 1,
+            ring: 2,
+            label: 'Gatsby JS',
+            active: false,
+            moved: 1
+        },
+        {
+            quadrant: 1,
+            ring: 2,
+            label: 'Yarn',
+            active: false,
+            moved: -1
         },
         {
             quadrant: 1,
