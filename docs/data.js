@@ -244,7 +244,7 @@ export default {
             ring: 2,
             label: 'PyTorch',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 0,
@@ -258,7 +258,7 @@ export default {
             ring: 0,
             label: 'txtwerk',
             active: false,
-            moved: 1
+            moved: 0
         },
         //////////////////////////////////////////////////////
         //      Frontend / Web
@@ -303,14 +303,14 @@ export default {
             ring: 1,
             label: 'Vue.js',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 1,
             ring: 1,
             label: 'Webpack',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 1,
@@ -352,21 +352,21 @@ export default {
             ring: 2,
             label: 'Yarn',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 1,
             ring: 1,
             label: 'CSS Grid',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 1,
             ring: 2,
             label: 'Typescript',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 1,
@@ -394,42 +394,42 @@ export default {
             ring: 3,
             label: 'Backbone',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 1,
             ring: 3,
             label: 'Bower',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 1,
             ring: 3,
             label: 'Grunt',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 1,
             ring: 3,
             label: 'Angular',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 1,
             ring: 3,
             label: 'Less',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 1,
             ring: 3,
             label: 'Coffeescript',
             active: false,
-            moved: -1
+            moved: 0
         },
         //////////////////////////////////////////////////////
         //      DevOps / Infrastructure
@@ -582,7 +582,7 @@ export default {
             ring: 0,
             label: 'node.js',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 3,
@@ -645,7 +645,7 @@ export default {
             ring: 0,
             label: 'Symfony',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 3,
@@ -666,7 +666,7 @@ export default {
             ring: 0,
             label: 'composer',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 3,
@@ -701,21 +701,21 @@ export default {
             ring: 3,
             label: 'Laravel',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 3,
             ring: 3,
             label: 'Zend',
             active: false,
-            moved: -1
+            moved: 0
         },
         {
             quadrant: 3,
             ring: 1,
             label: 'PostgreSQL',
             active: false,
-            moved: 1
+            moved: 0
         },
         {
             quadrant: 3,
