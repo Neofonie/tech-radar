@@ -41,33 +41,41 @@ export default class extends Module {
 
         this.target.onmouseover = e => {
             this.radar.emit('mouseover', e, this);
-            this.select(e);
+            this.highlight(e);
         };
         this.target.onmouseleave = e => {
             this.radar.emit('mouseleave', e, this);
-            this.deselect(e);
+            this.release(e);
+        };
+        this.target.onclick = e => {
+            this.radar.emit('click', e, this);
+            this.select(e);
         };
 
     }
 
-    select(e) {
+    highlight(e) {
         this.target.innerHTML = this.label;
         this.target.setAttribute('data-quadrant', this.radar.quadrants.items[this.quadrant].label);
         this.target.setAttribute('data-ring', this.radar.rings.items[this.ring].label);
         this.target.classList.add('active');
         if (e) {
             const legendButton = this.radar.target.querySelector(`[data-index="${this.index}"]`);
-            legendButton.select();
+            legendButton.highlight();
         }
     }
 
-    deselect(e) {
-        this.target.innerHTML = this.index + 1;
+    release(e) {
+        this.target.classList.contains('selected') ? this.target.innerHTML = this.label : this.target.innerHTML = this.index + 1;
         this.target.classList.remove('active');
         if (e) {
             const legendButton = this.radar.target.querySelector(`[data-index="${this.index}"]`);
-            legendButton.deselect();
+            legendButton.release();
         }
+    }
+
+    select(e){
+        this.target.classList.contains('selected') ? this.target.classList.remove('selected') :  this.target.classList.add('selected');
     }
 
     segmentObj(quadrant, ring) {

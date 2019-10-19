@@ -41,7 +41,7 @@ export default class extends Module {
                 e.preventDefault();
             };
 
-            button.select = e => {
+            button.highlight = e => {
                 button.classList.add('active');
                 let index = false;
                 if (e) {
@@ -51,12 +51,11 @@ export default class extends Module {
                 }
                 const dot = this.radar.dots.items[index];
                 if (dot) {
-                    dot.select();
-                    button.style.backgroundColor = dot.color;
+                    dot.highlight();
                 }
             };
 
-            button.deselect = e => {
+            button.release = e => {
                 button.classList.remove('active');
 
                 let index = false;
@@ -67,13 +66,12 @@ export default class extends Module {
                 }
                 const dot = this.radar.dots.items[index];
                 if (dot) {
-                    dot.deselect();
-                    //button.style.backgroundColor = 'inherit';
+                    dot.release();
                 }
             };
 
-            button.onmouseover = e => button.select(e);
-            button.onmouseout = e => button.deselect(e);
+            button.onmouseover = e => button.highlight(e);
+            button.onmouseout = e => button.release(e);
         });
         this.draw();
     }
