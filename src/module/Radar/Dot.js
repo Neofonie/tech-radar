@@ -76,6 +76,10 @@ export default class extends Module {
 
     select(e){
         this.target.classList.contains('selected') ? this.target.classList.remove('selected') :  this.target.classList.add('selected');
+        if(e){
+            const legendButton = this.radar.target.querySelector(`[data-index="${this.index}"]`);
+            legendButton.select();
+        }
     }
 
     segmentObj(quadrant, ring) {

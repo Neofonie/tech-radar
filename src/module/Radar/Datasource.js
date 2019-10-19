@@ -13,24 +13,32 @@ export default class extends Module {
             this.storage = localStorage;
             this.cache_age = 0;
 
+            this.serverMode = false;
             this.protocol = 'http';
             this.host = 'localhost';
             this.port = 8200;
             this.apiVersion = 'v1';
 
-            //this.baseUrl = `${document.location.origin}${document.location.pathname}`;
-            this.baseUrl = `${this.protocol}://${this.host}`;
-            if (this.port)
-                this.baseUrl += `:${this.port}`;
+            //
+            if (this.serverMode === true) {
+                this.baseUrl = `${this.protocol}://${this.host}`;
+                if (this.port)
+                    this.baseUrl += `:${this.port}`;
 
-            this.baseUrl += `/${this.apiVersion}`;
-            this.radarIndexUrl = `${this.baseUrl}/radar`;
+                this.baseUrl += `/${this.apiVersion}`;
+                this.radarIndexUrl = `${this.baseUrl}/radar`;
+            } else {
+                this.baseUrl = `${document.location.origin}`;
+                if (document.location.pathname !== '/')
+                    this.baseUrl += `${document.location.pathname}`;
+
+                this.radarIndexUrl = `${this.baseUrl}/radar/index.json`;
+            }
 
             this.radarIndex = false;     // the index of all ids
             this.defaultRadar = false;
             this.selectedRadar = false;
             this.radarVersion = false;
-
             this.data = false;          // the dots data
 
             this
@@ -99,7 +107,12 @@ export default class extends Module {
         if (!id)
             id = this.selectedRadar.id;
 
-        this.configUrl = `${this.baseUrl}/radar/${id}`;
+        if (this.serverMode === true) {
+            this.configUrl = `${this.baseUrl}/radar/${id}`;
+        } else {
+            this.configUrl = `${this.baseUrl}/radar/${id}/config.json`;
+        }
+
         return this.fetch(this.configUrl)
             .then(data => {
                 return data;
@@ -120,7 +133,11 @@ export default class extends Module {
         if (!version)
             version = this.radarVersion;
 
-        this.dataUrl = `${this.baseUrl}/radar/${id}/dataset/${version}`;
+        if (this.serverMode === true) {
+            this.dataUrl = `${this.baseUrl}/radar/${id}/dataset/${version}`;
+        } else {
+            this.dataUrl = `${this.baseUrl}/radar/${id}/dataset/${version}.json`;
+        }
         return this.fetch(this.dataUrl)
             .then(data => {
                 return data;

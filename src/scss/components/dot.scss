@@ -70,26 +70,31 @@
     //transform: rotate(5deg) scale(2);
     z-index: 1000;
     border-radius: 0px;
-    animation: dot-selection 3s ease-in-out infinite;
+    animation: dot-selection 3s infinite;
     @keyframes dot-selection {
       0% {
-        transform: scale(2) rotate(5deg);
+        transform: scale(1.4) rotate(5deg);
+        transition-timing-function: linear;
       }
 
       25% {
-        transform: scale(2.1) rotate(7deg);
+        transform: scale(1.6) rotate(7deg);
+        transition-timing-function: linear;
       }
 
       50% {
-        transform: scale(2) rotate(5deg);
+        transform: scale(1.4) rotate(5deg);
+        transition-timing-function: linear;
       }
 
       75% {
-        transform: scale(2.1) rotate(2deg);
+        transform: scale(1.2) rotate(2deg);
+        transition-timing-function: linear;
       }
 
       100% {
-        transform: scale(2) rotate(5deg);
+        transform: scale(1.4) rotate(5deg);
+        transition-timing-function: linear;
       }
     }
   }

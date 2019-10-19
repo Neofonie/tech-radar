@@ -64,6 +64,14 @@ body {
                 color: $color-foreground;
               }
             }
+
+            &.selected{
+              color: $color-chalk;
+
+              span {
+                color: $color-foreground;
+              }
+            }
           }
         }
       }

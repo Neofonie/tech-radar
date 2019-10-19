@@ -70,8 +70,24 @@ export default class extends Module {
                 }
             };
 
+            button.select = e => {
+                button.classList.contains('selected') ? button.classList.remove('selected') :  button.classList.add('selected');
+                let index = false;
+                if (e) {
+                    e.preventDefault();
+                    index = e.target.getAttribute('data-index');
+                } else {
+                    index = button.getAttribute('data-index');
+                }
+                const dot = this.radar.dots.items[index];
+                if (e && dot) {
+                    dot.select();
+                }
+            };
+
             button.onmouseover = e => button.highlight(e);
             button.onmouseout = e => button.release(e);
+            button.onclick = e => button.select(e);
         });
         this.draw();
     }

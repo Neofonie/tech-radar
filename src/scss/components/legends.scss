@@ -83,9 +83,17 @@
       width: 300px;
       height: 400px;
 
+      [data-ring] {
+        a {
+          &.selected {
+            font-weight: 900;
+          }
+        }
+      }
+
       [data-ring="0"] {
         a {
-          &.active {
+          &.active, &.selected {
             background-color: $color-ring0;
           }
         }
@@ -93,7 +101,7 @@
 
       [data-ring="1"] {
         a {
-          &.active {
+          &.active, &.selected {
             background-color: $color-ring1;
           }
         }
@@ -101,7 +109,7 @@
 
       [data-ring="2"] {
         a {
-          &.active {
+          &.active, &.selected {
             background-color: $color-ring2;
           }
         }
@@ -109,7 +117,7 @@
 
       [data-ring="3"] {
         a {
-          &.active {
+          &.active, &.selected {
             background-color: $color-ring3;
           }
         }
