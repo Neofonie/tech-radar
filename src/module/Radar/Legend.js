@@ -13,14 +13,14 @@ export default class extends Module {
         this.target = document.createElement('div');
         this.target.classList.add('legend');
         this.target.setAttribute('data-label', this.label);
-        this.target.setAttribute('data-ring', this.index);
+        this.target.setAttribute('data-quadrant', this.index);
         let html = `<h1>${this.label}</h1>`;
         html += '<div class="label-container">';
         for (let i = 0; i < this.dots.length; i++) {
             if (i === 0 || i === 2)
                 html += '<div class="ring-column">';
 
-            html += '<div class="ring-block">';
+            html += `<div class="ring-block" data-ring="${i}">`;
             html += `<h2>${this.radar.rings.items[i].label}</h2>`;
             html += '<ul>';
             this.dots[i].forEach(dot => {
@@ -68,7 +68,7 @@ export default class extends Module {
                 const dot = this.radar.dots.items[index];
                 if (dot) {
                     dot.deselect();
-                    button.style.backgroundColor = 'inherit';
+                    //button.style.backgroundColor = 'inherit';
                 }
             };
 

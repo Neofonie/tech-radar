@@ -59,6 +59,9 @@ body {
           a {
             &.active {
               color: $color-chalk;
+              span {
+                color: $color-foreground;
+              }
             }
           }
         }
