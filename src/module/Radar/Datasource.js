@@ -76,27 +76,9 @@ export default class extends Module {
 
         return new Promise((resolve, reject) => {
             this.radarVersion = version;
-
-            return this.getData()
-                .then(data => {
-                    this.data = data.map((dot, index) => {
-                        return {
-                            index: index,
-                            ...dot
-                        }
-                    });
-                    document.querySelector('body').classList.remove('loading');
-                    resolve(this.selectedRadar, this.radarVersion);
-                })
-                .catch(() => {
-                    document.querySelector('body').classList.remove('loading');
-                    reject('Something is wrong...');
-                });
-
-            /*
             this.getConfig()
                 .then(config => {
-                    this.config = config;
+                    this.selectedRadar = config;
                     this.radarVersion = version;
                     return this.getData();
                 })
@@ -110,9 +92,18 @@ export default class extends Module {
                     document.querySelector('body').classList.remove('loading');
                     resolve(this.selectedRadar, this.radarVersion);
                 });
-
-             */
         });
+    }
+
+    getConfig(id) {
+        if (!id)
+            id = this.selectedRadar.id;
+
+        this.configUrl = `${this.baseUrl}/radar/${id}`;
+        return this.fetch(this.configUrl)
+            .then(data => {
+                return data;
+            });
     }
 
     getDataIndex() {
