@@ -10,7 +10,7 @@ export default class extends Module {
         this.radar = args.radar;
         this.options = args.options;
 
-        this.name = args.options.name;
+        this.label = args.options.label;
         this.radial_min = args.options.radial_min;
         this.radial_max = args.options.radial_max;
         this.factor_x = args.options.factor_x;
@@ -19,7 +19,7 @@ export default class extends Module {
 
         this.target = document.createElement('div');
         this.target.classList.add('quadrant');
-        this.target.setAttribute('data-name',this.name);
+        this.target.setAttribute('data-label',this.label);
 
         this.target.onmouseenter = () => {
             this.target.classList.add('active');

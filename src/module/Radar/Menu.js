@@ -8,7 +8,7 @@ export default class extends Module {
         this.radar = radar;
         this.items = [];
 
-        this.on('version-selected', (dataSet, version) => {
+        this.on('version-selected', (selectedRadar, version) => {
 
         });
 
@@ -26,19 +26,19 @@ export default class extends Module {
         this.openButton.onclick = e => this.toggle(e);
         inner.append(this.openButton);
 
-        this.dataSetButtons = {};
+        this.radarButtons = {};
         this.versionButtons = {};
-        this.radar.dataSource.dataIndex.forEach(i => {
-            const dataset = document.createElement('div');
-            dataset.classList.add('dataset');
+        this.radar.dataSource.radarIndex.forEach(i => {
+            const radar = document.createElement('div');
+            radar.classList.add('radar');
 
-            const dataSetButton = document.createElement('a');
-            dataSetButton.classList.add('label');
-            dataSetButton.innerHTML = `${i.label}`;
-            //dataSetButton.onclick = e => this.select(i, e);
+            const radarButton = document.createElement('a');
+            radarButton.classList.add('label');
+            radarButton.innerHTML = `${i.label}`;
+            //radarButton.onclick = e => this.select(i, e);
 
-            dataset.append(dataSetButton);
-            this.dataSetButtons[i.id] = dataSetButton;
+            radar.append(radarButton);
+            this.radarButtons[i.id] = radarButton;
 
             if (i.versions)
                 i.versions.forEach(ii => {
@@ -50,13 +50,13 @@ export default class extends Module {
                     if (!this.versionButtons[i.id])
                         this.versionButtons[i.id] = [];
                     this.versionButtons[i.id].push(versionButton);
-                    dataset.append(versionButton);
+                    radar.append(versionButton);
                 });
 
-            inner.append(dataset);
+            inner.append(radar);
         });
         this.target.append(inner);
-        //this.selectVersion(this.radar.dataSource.dataSet,this.radar.dataSource.dataSet.versions[0]);
+        //this.selectVersion(this.radar.dataSource.selectedRadar,this.radar.dataSource.selectedRadar.versions[0]);
     }
 
     draw() {
@@ -75,23 +75,23 @@ export default class extends Module {
         this.target.classList.remove('opened');
     }
 
-    select(dataSet, e) {
+    select(radar, e) {
         if (e) {
             e.preventDefault();
         }
-        this.openButton.innerHTML = dataSet.label;
+        this.openButton.innerHTML = radar.label;
     }
 
-    selectVersion(dataSet, version) {
-        console.log('>>>', this.label.padStart(15,' '), '>', 'MENU SELECT VERSION', dataSet, version);
+    selectVersion(selectedRadar, version) {
+        console.log('>>>', this.label.padStart(15,' '), '>', 'MENU SELECT VERSION', selectedRadar, version);
         this.close();
-        this.emit('version-selected', dataSet, version);
+        this.emit('version-selected', selectedRadar, version);
     }
 
     drawVersion(id, version){
-        const dataSet = this.radar.dataSource.oneDataSet(id);
-        console.log('>>>', this.label.padStart(15,' '), '>', 'MENU DRAW VERSION', dataSet, version);
-        this.openButton.innerHTML = dataSet.label;
+        const selectedRadar = this.radar.dataSource.oneRadar(id);
+        console.log('>>>', this.label.padStart(15,' '), '>', 'MENU DRAW VERSION', selectedRadar, version);
+        this.openButton.innerHTML = selectedRadar.label;
         this.openButton.setAttribute('data-version', version);
     }
 }

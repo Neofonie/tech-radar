@@ -13,26 +13,35 @@ export default class extends Module {
             this.storage = localStorage;
             this.cache_age = 0;
 
-            this.baseUrl = `${document.location.origin}${document.location.pathname}`;
-            this.dataIndexUrl = `${this.baseUrl}data/index.json`;
-            this.configUrl = false;
+            this.protocol = 'http';
+            this.host = 'localhost';
+            this.port = 8200;
+            this.apiVersion = 'v1';
 
-            this.defaultData = false;
-            this.dataIndex = false;     // the index of all ids
-            this.dataSet = false;       // the selected dataset
-            this.dataVersion = false;   // the selected version
+            //this.baseUrl = `${document.location.origin}${document.location.pathname}`;
+            this.baseUrl = `${this.protocol}://${this.host}`;
+            if (this.port)
+                this.baseUrl += `:${this.port}`;
+
+            this.baseUrl += `/${this.apiVersion}`;
+            this.radarIndexUrl = `${this.baseUrl}/radar`;
+
+            this.radarIndex = false;     // the index of all ids
+            this.defaultRadar = false;
+            this.selectedRadar = false;
+            this.radarVersion = false;
+
             this.data = false;          // the dots data
-            this.config = false;
 
             this
                 .getDataIndex()
-                .then(dataIndex => {
-                    this.dataIndex = dataIndex;
-                    this.cache_age = (this.dataSet.cache_age || 0) * 60 * 60; // seconds * minutes = (one) hour(s)
+                .then(radarIndex => {
+                    this.radarIndex = radarIndex;
 
-                    // set the dataset by the default index
-                    this.defaultData = this.dataIndex.filter(i => i.default)[0];
-                    this.dataSet = this.defaultData;
+                    // set the radar by the default index
+                    this.defaultRadar = this.radarIndex.filter(i => i.default)[0];
+                    this.selectedRadar = this.defaultRadar;
+                    this.cache_age = (this.selectedRadar.cache_age || 0) * 60 * 60; // seconds * minutes = (one) hour(s)
                     this.emit('ready');
                 });
 
@@ -42,31 +51,53 @@ export default class extends Module {
         });
     }
 
-    oneDataSet(id){
-        console.log('>>>', this.label.padStart(15,' '), '>', 'ONE DATA SET', id);
-        return this.dataIndex.filter(i => i.id === id)[0];
+    oneRadar(id) {
+        console.log('>>>', this.label.padStart(15, ' '), '>', 'ONE DATA SET', id);
+        return this.radarIndex.filter(i => i.id === id)[0];
     }
 
-    selectDataSet(id, version) {
+    selectRadar(id, version) {
         if (!this.hasId(id)) {
-            id = this.defaultData.id;
+            id = this.defaultRadar.id;
         }
-        this.dataSet = this.oneDataSet(id);
-        if (!this.hasVersion(this.dataSet, version)) {
-            version = this.dataSet.versions[0];
+        this.selectedRadar = this.oneRadar(id);
+        if (this.hasVersion(this.selectedRadar, this.selectedRadar.version)) {
+            version = this.selectedRadar.version;
         }
-        console.log('>>>', this.label.padStart(15,' '), '>', 'SELECT DATASET', id, version, this.dataSet);
+        if (version && !this.hasVersion(this.selectedRadar, version)) {
+            version = this.selectedRadar.versions.sort().reverse()[0];
+        }
+        console.log('>>>', this.label.padStart(15, ' '), '>', 'SELECT RADAR', id, version, this.selectedRadar.label);
 
-        if (!this.dataSet)
+        if (!this.selectedRadar)
             return false;
 
         document.querySelector('body').classList.add('loading');
 
         return new Promise((resolve, reject) => {
+            this.radarVersion = version;
+
+            return this.getData()
+                .then(data => {
+                    this.data = data.map((dot, index) => {
+                        return {
+                            index: index,
+                            ...dot
+                        }
+                    });
+                    document.querySelector('body').classList.remove('loading');
+                    resolve(this.selectedRadar, this.radarVersion);
+                })
+                .catch(() => {
+                    document.querySelector('body').classList.remove('loading');
+                    reject('Something is wrong...');
+                });
+
+            /*
             this.getConfig()
                 .then(config => {
                     this.config = config;
-                    this.dataVersion = version;
+                    this.radarVersion = version;
                     return this.getData();
                 })
                 .then(data => {
@@ -77,24 +108,15 @@ export default class extends Module {
                         }
                     });
                     document.querySelector('body').classList.remove('loading');
-                    resolve(this.dataSet, this.dataVersion);
+                    resolve(this.selectedRadar, this.radarVersion);
                 });
+
+             */
         });
     }
 
     getDataIndex() {
-        return this.fetch(this.dataIndexUrl)
-            .then(data => {
-                return data;
-            });
-    }
-
-    getConfig(id) {
-        if (!id)
-            id = this.dataSet.id;
-
-        this.configUrl = `${this.baseUrl}data/${id}/config.json`;
-        return this.fetch(this.configUrl)
+        return this.fetch(this.radarIndexUrl)
             .then(data => {
                 return data;
             });
@@ -102,12 +124,12 @@ export default class extends Module {
 
     getData(id, version) {
         if (!id)
-            id = this.dataSet.id;
+            id = this.selectedRadar.id;
 
         if (!version)
-            version = this.dataVersion;
+            version = this.radarVersion;
 
-        this.dataUrl = `${this.baseUrl}data/${id}/${version}.json`;
+        this.dataUrl = `${this.baseUrl}/radar/${id}/dataset/${version}`;
         return this.fetch(this.dataUrl)
             .then(data => {
                 return data;
@@ -153,13 +175,13 @@ export default class extends Module {
     }
 
     hasId(id) {
-        console.log('>>>', this.label.padStart(15,' '), '>', 'HAS ID', id);
-        return this.dataIndex.filter(i => i.id === id)[0];
+        console.log('>>>', this.label.padStart(15, ' '), '>', 'HAS ID', id);
+        return this.radarIndex.filter(i => i.id === id)[0];
     }
 
-    hasVersion(dataSet, version) {
-        console.log('>>>', this.label.padStart(15,' '), '>', 'HAS VERSION', dataSet, version);
-        return dataSet.versions.includes(version);
+    hasVersion(selectedRadar, version) {
+        console.log('>>>', this.label.padStart(15, ' '), '>', 'HAS VERSION', selectedRadar.label, selectedRadar.versions, version);
+        return selectedRadar.versions.includes(version);
     }
 
     getStorageJson(field) {
@@ -167,7 +189,7 @@ export default class extends Module {
             try {
                 return JSON.parse(this.storage[`${this.storage_prefix}${field}`]);
             } catch (e) {
-                console.log('>>>', this.label.padStart(15,' '), '>', 'ERROR', e);
+                console.log('>>>', this.label.padStart(15, ' '), '>', 'ERROR', e);
             }
             return [];
         }
@@ -182,7 +204,7 @@ export default class extends Module {
             this.storage[`${this.storage_prefix}${field}_hash`] = hash;
             this.storage[`${this.storage_prefix}${field}`] = JSON.stringify(data);
         } catch (e) {
-            console.log('>>>', this.label.padStart(15,' '), '>', 'ERROR', e);
+            console.log('>>>', this.label.padStart(15, ' '), '>', 'ERROR', e);
         }
     }
 }

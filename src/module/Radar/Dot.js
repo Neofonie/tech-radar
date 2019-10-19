@@ -17,13 +17,14 @@ export default class extends Module {
         this.y = this.options.y;
         this.hot = this.options.hot;
         this.boost = this.options.boost || 0;
-        this.class = 'dot';
-        this.color = this.active || this.radar.config.print_layout ? this.radar.config.rings[this.ring].color : this.radar.config.colors.inactive;
+        this.class = `dot r${this.ring} q${this.quadrant}`;
+
+        //this.color = this.active || this.radar.selectedRadar.print_layout ? this.radar.selectedRadar.rings[this.ring].color : this.radar.selectedRadar.colors.inactive;
         this.offset = this.radar.offset;
         this.elementWidth = false;
         this.elementHeight = false;
 
-        this.seed = Math.floor(Math.random() * this.radar.config.seed.to) + this.radar.config.seed.from;
+        this.seed = Math.floor(Math.random() * this.radar.selectedRadar.seed.to) + this.radar.selectedRadar.seed.from;
         this.segment = this.segmentObj(this.quadrant, this.ring);
         const point = this.segment.random();
         this.x = point.x;
@@ -31,8 +32,7 @@ export default class extends Module {
 
         this.target = document.createElement('div');
         this.target.innerHTML = this.index + 1;
-        this.target.classList.add(this.class);
-        this.target.style.backgroundColor = this.color;
+        this.class.split(/ /gi).forEach(i => this.target.classList.add(i));
         this.target.style.top = `${this.y}px`;
         this.target.style.left = `${this.x}px`;
         if (this.boost) {
@@ -52,8 +52,8 @@ export default class extends Module {
 
     select(e) {
         this.target.innerHTML = this.label;
-        this.target.setAttribute('data-quadrant', this.radar.quadrants.items[this.quadrant].name);
-        this.target.setAttribute('data-ring', this.radar.rings.items[this.ring].name);
+        this.target.setAttribute('data-quadrant', this.radar.quadrants.items[this.quadrant].label);
+        this.target.setAttribute('data-ring', this.radar.rings.items[this.ring].label);
         this.target.classList.add('active');
         if (e) {
             const legendButton = this.radar.target.querySelector(`[data-index="${this.index}"]`);

@@ -25,21 +25,22 @@ export default class extends Module {
             new Datasource(this)
                 .then(datasource => {
                     this.dataSource = datasource;
-                    this.config = this.dataSource.config;
-                    this.data = this.dataSource.data;
+
+                    this.selectedRadar = this.dataSource.selectedRadar;   // empty on init
+                    this.data = this.dataSource.data;       // empty on init
 
                     // we need the data index
                     this.menu = new Menu(this);
                     this.menu.draw();
 
-                    // the dataset change
-                    this.menu.on('version-selected', (dataSet, version) => this.selectVersion(dataSet.id, version));
+                    // the radar change
+                    this.menu.on('version-selected', (selectedRadar, version) => this.selectVersion(selectedRadar.id, version));
 
                     this.on('version-selected', (id, version) => {
                         console.log('>>>', this.label.padStart(15, ' '), '>', 'ON VERSION SELECTED', id, version);
-                        this.controls.setHash(this.dataSource.dataSet.id, this.dataSource.dataVersion);
-                        this.menu.drawVersion(this.dataSource.dataSet.id, this.dataSource.dataVersion);
-                        this.title = `${this.dataSource.dataSet.label} - ${this.dataSource.dataVersion}`;
+                        this.controls.setHash(this.dataSource.selectedRadar.id, this.dataSource.radarVersion);
+                        this.menu.drawVersion(this.dataSource.selectedRadar.id, this.dataSource.radarVersion);
+                        this.title = `${this.dataSource.selectedRadar.label} - ${this.dataSource.radarVersion}`;
                         this.redraw();
                     });
 
@@ -172,7 +173,7 @@ export default class extends Module {
     }
 
     setTheme() {
-        let styleHRef = `css/${this.config.theme}.css`;
+        let styleHRef = `css/${this.selectedRadar.theme}.css`;
 
         // the theme style element
         if (this.themeStyle) {
@@ -187,7 +188,7 @@ export default class extends Module {
         if (this.themeStyle.href.includes(styleHRef))
             this.emit('style-loaded');
 
-        if (this.config.theme === undefined)
+        if (this.selectedRadar.theme === undefined)
             styleHRef = '';
 
         this.themeStyle.href = styleHRef;
@@ -206,11 +207,13 @@ export default class extends Module {
         console.log('>>>', this.label.padStart(15, ' '), '>', 'SELECT VERSION', id, version);
 
         this.dataSource
-            .selectDataSet(id, version)
+            .selectRadar(id, version)
             .then(() => {
-                console.log('>>>', this.label.padStart(15, ' '), '>', 'SELECT VERSION', this.dataSource.dataSet.id, this.dataSource.dataVersion);
-                this.config = this.dataSource.config;
+                console.log('>>>', this.label.padStart(15, ' '), '>', 'SELECT VERSION', this.dataSource.selectedRadar.id, this.dataSource.radarVersion);
+
+                this.selectedRadar = this.dataSource.selectedRadar;
                 this.data = this.dataSource.data;
+
                 this.emit('version-selected', id, version);
             });
     }
