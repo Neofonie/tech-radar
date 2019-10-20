@@ -13,7 +13,7 @@ export default class extends Module {
             this.storage = localStorage;
             this.cache_age = 0;
 
-            this.serverMode = false;
+            this.serverMode = true;
             this.protocol = 'http';
             this.host = 'localhost';
             this.port = 8200;
@@ -47,7 +47,7 @@ export default class extends Module {
                     this.radarIndex = radarIndex;
 
                     // set the radar by the default index
-                    this.defaultRadar = this.radarIndex.filter(i => i.default)[0];
+                    this.defaultRadar = this.radarIndex.filter(i => i.is_default)[0];
                     this.selectedRadar = this.defaultRadar;
                     this.cache_age = (this.selectedRadar.cache_age || 0) * 60 * 60; // seconds * minutes = (one) hour(s)
                     this.emit('ready');

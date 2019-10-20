@@ -31,6 +31,7 @@ export default class extends Module {
         this.radar.dataSource.radarIndex.forEach(i => {
             const radar = document.createElement('div');
             radar.classList.add('radar');
+            radar.setAttribute('data-radar-id', i.id);
 
             const radarButton = document.createElement('a');
             radarButton.classList.add('label');
@@ -39,6 +40,8 @@ export default class extends Module {
 
             radar.append(radarButton);
             this.radarButtons[i.id] = radarButton;
+
+            i.version = i.versions.sort().reverse();
 
             if (i.versions)
                 i.versions.forEach(ii => {
@@ -68,7 +71,7 @@ export default class extends Module {
 
     open(e) {
         this.target.classList.add('opened');
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        window.scrollTo({top: 0, left: 0, behavior: "smooth"});
     }
 
     close(e) {
@@ -83,15 +86,56 @@ export default class extends Module {
     }
 
     selectVersion(selectedRadar, version) {
-        console.log('>>>', this.label.padStart(15,' '), '>', 'MENU SELECT VERSION', selectedRadar, version);
+        console.log('>>>', this.label.padStart(15, ' '), '>', 'MENU SELECT VERSION', selectedRadar, version);
         this.close();
         this.emit('version-selected', selectedRadar, version);
     }
 
-    drawVersion(id, version){
+    drawVersion(id, version) {
         const selectedRadar = this.radar.dataSource.oneRadar(id);
-        console.log('>>>', this.label.padStart(15,' '), '>', 'MENU DRAW VERSION', selectedRadar, version);
+        console.log('>>>', this.label.padStart(15, ' '), '>', 'MENU DRAW VERSION', selectedRadar, version);
         this.openButton.innerHTML = selectedRadar.label;
         this.openButton.setAttribute('data-version', version);
+    }
+
+    addAdmin() {
+        if (this.radar.dataSource.serverMode === true) {
+            this.addRadarButton = document.createElement('a');
+            this.addRadarButton.id = 'addRadar';
+            this.addRadarButton.className = 'add-radar';
+            this.addRadarButton.innerHTML = '+';
+            this.addRadarButton.onclick = (e) => {
+                this.close();
+                this.radar.radarForm.toggle(e);
+                e.target.blur();
+            };
+            this.target.querySelector('.inner').append(this.addRadarButton);
+            this.target.querySelectorAll('.radar').forEach(i => {
+                const addDatasetButton = document.createElement('a');
+                addDatasetButton.id = 'addDataset';
+                addDatasetButton.className = 'add-dataset';
+                addDatasetButton.innerHTML = '+';
+                addDatasetButton.setAttribute('data-radar-id', i.getAttribute('data-radar-id'));
+                addDatasetButton.onclick = (e) => {
+                    this.close();
+                    this.radar.datasetForm.toggle(e);
+                };
+                i.append(addDatasetButton);
+            });
+        }
+    }
+
+    removeAdmin() {
+        this.addRadarButton.remove();
+        this.target.querySelectorAll('.radar .add-dataset').forEach(i => i.remove());
+    }
+
+    get admin() {
+        return this._admin;
+    }
+
+    set admin(val) {
+        this._admin = val;
+        this.admin ? this.addAdmin() : this.removeAdmin();
     }
 }

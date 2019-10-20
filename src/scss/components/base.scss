@@ -36,7 +36,7 @@ body {
       content: 'loading...';
       opacity: 1;
       transition: all 1s ease-in-out;
-      box-shadow: 0 0 200px $color-high;
+      box-shadow: 0 0 50px $color-high;
       border: 10px solid $color-high;
       background-color: $color-primary;
       color: $color-high;
@@ -52,7 +52,7 @@ body {
       line-height: 650px;
       height: 300px;
       margin-left: -150px;
-      margin-top: -150px;
+      margin-top: -140px;
 
       left: calc(50%);
       top: calc(50%);

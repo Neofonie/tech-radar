@@ -2,6 +2,14 @@ $color-primary: #E60023;
 $color-primary-dark: darken(desaturate($color-primary, 20%), 20%);
 $color-primary-light: lighten(desaturate($color-primary, 20%), 20%);
 
+$color-secondary: #104080;
+$color-secondary-dark: darken(desaturate($color-secondary, 20%), 20%);
+$color-secondary-light: lighten(desaturate($color-secondary, 20%), 20%);
+
+$color-green: #208030;
+$color-green-dark: darken(desaturate($color-green, 10%), 10%);
+$color-green-light: lighten(desaturate($color-green, 20%), 20%);
+
 $color-foreground: #444444;
 $color-high: #ffffff;
 $color-deep: #000000;
