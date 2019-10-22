@@ -88,9 +88,8 @@ export default class extends Module {
 
     draw() {
         const quadrant = this.radar.quadrants.items[this.index].target;
-        const ring = this.radar.quadrants.items[3].target;
-        //this.target.style.top = quadrant.style.top;
-        this.target.style.top = `${quadrant.getBoundingClientRect().top}px`;
+        const ring = this.radar.quadrants.items[3].target; // 3 means the largest, the outer ring
+        this.target.style.top = `${quadrant.getBoundingClientRect().top + window.scrollY}px`;
         this.target.style.left = `${ring.getBoundingClientRect().left}px`;
         this.target.setAttribute('data-rings-width', ring.getBoundingClientRect().width);
     }

@@ -55,8 +55,7 @@ export default class extends Module {
         this.target.style.width = `${this.width}px`;
         this.target.style.height = `${this.height}px`;
         this.target.style.left = `${this.left}px`;
-        this.target.style.top = `${this.top}px`;
-        //this.target.style.borderBottomWidth = `${this.borderBottomWidth}px`;
+        this.target.style.top = `${this.top + window.scrollY}px`;
     }
 
     get index() {
