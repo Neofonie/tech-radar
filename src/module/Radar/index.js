@@ -34,7 +34,6 @@ export default class extends Module {
 
                     // we need the data index
                     this.menu = new Menu(this);
-                    this.menu.draw();
 
                     // only in server mode some element will be available
                     if (this.dataSource.serverMode === true) {

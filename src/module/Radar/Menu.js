@@ -11,6 +11,14 @@ export default class extends Module {
         this.on('version-selected', (selectedRadar, version) => {
 
         });
+        this.build();
+
+        //this.selectVersion(this.radar.dataSource.selectedRadar,this.radar.dataSource.selectedRadar.versions[0]);
+    }
+
+    build(){
+        if(this.target)
+            this.target.remove();
 
         const target = document.createElement('div');
         target.id = 'menu';
@@ -41,7 +49,7 @@ export default class extends Module {
             radar.append(radarButton);
             this.radarButtons[i.id] = radarButton;
 
-            i.version = i.versions.sort().reverse();
+            i.versions = i.versions.sort().reverse();
 
             if (i.versions)
                 i.versions.forEach(ii => {
@@ -59,7 +67,6 @@ export default class extends Module {
             inner.append(radar);
         });
         this.target.append(inner);
-        //this.selectVersion(this.radar.dataSource.selectedRadar,this.radar.dataSource.selectedRadar.versions[0]);
     }
 
     draw() {

@@ -60,7 +60,7 @@ export default class extends Module {
     }
 
     oneRadar(id) {
-        console.log('>>>', this.label.padStart(15, ' '), '>', 'ONE DATA SET', id);
+        console.log('>>>', this.label.padStart(15, ' '), '>', 'ONE DATA SET', id, this.radarIndex);
         return this.radarIndex.filter(i => i.id === id)[0];
     }
 
@@ -69,9 +69,12 @@ export default class extends Module {
             id = this.defaultRadar.id;
         }
         this.selectedRadar = this.oneRadar(id);
-        if (this.hasVersion(this.selectedRadar, this.selectedRadar.version)) {
+
+        // chose the default version
+        if (!version && this.hasVersion(this.selectedRadar, this.selectedRadar.version)) {
             version = this.selectedRadar.version;
         }
+
         if (version && !this.hasVersion(this.selectedRadar, version)) {
             version = this.selectedRadar.versions.sort().reverse()[0];
         }
@@ -83,7 +86,7 @@ export default class extends Module {
         document.querySelector('body').classList.add('loading');
 
         return new Promise((resolve, reject) => {
-            this.radarVersion = version;
+            //this.radarVersion = version;
             this.getConfig()
                 .then(config => {
                     this.selectedRadar = config;
@@ -126,7 +129,17 @@ export default class extends Module {
             });
     }
 
+    updateDataIndex(){
+        this
+            .getDataIndex()
+            .then(radarIndex => {
+                this.radarIndex = radarIndex;
+                return Promise.resolve();
+            });
+    }
+
     getData(id, version) {
+
         if (!id)
             id = this.selectedRadar.id;
 

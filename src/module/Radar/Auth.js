@@ -58,7 +58,7 @@ export default class extends Module {
 
         body.append(this.loginModal);
         body.append(this.logoutModal);
-        this.login('admin','change!me');
+       //this.login('admin','change!me');
     }
 
     toggle() {
