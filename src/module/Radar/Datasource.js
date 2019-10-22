@@ -48,6 +48,9 @@ export default class extends Module {
                 .then(radarIndex => {
                     this.radarIndex = radarIndex;
 
+                    // order the versions
+                    this.radarIndex.map(r => r.versions = r.versions.sort().reverse());
+
                     // set the radar by the default index
                     this.defaultRadar = this.radarIndex.filter(i => i.is_default)[0];
                     this.selectedRadar = this.defaultRadar;
