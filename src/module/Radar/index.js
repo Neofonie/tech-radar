@@ -58,7 +58,7 @@ export default class extends Module {
                     }
 
                     // the radar change
-                    this.menu.on('version-selected', (selectedRadar, version) => this.selectVersion(selectedRadar.id, version));
+                    this.menu.on('version-selected', (id, version) => this.selectVersion(id, version));
 
                     this.on('version-selected', (id, version) => {
                         console.log('>>>', this.label.padStart(15, ' '), '>', 'ON VERSION SELECTED', id, version);
@@ -225,6 +225,8 @@ export default class extends Module {
 
 
     selectVersion(id, version) {
+        console.log('????????', id, version);
+
         if (!id)
             id = this.controls.id;
         if (!version)
