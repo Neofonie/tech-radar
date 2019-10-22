@@ -65,7 +65,7 @@ body {
               }
             }
 
-            &.selected{
+            &.selected {
               color: $color-chalk;
 
               span {
@@ -96,7 +96,7 @@ body {
     width: 400px;
 
     .radar {
-      border-bottom-color:$color-chalk;
+      border-bottom-color: $color-chalk;
     }
 
     .open {
