@@ -1,4 +1,7 @@
 import Module from "../../Module";
+import LegendTemplate from './Templates/Legend.html';
+import LegendRingTemplate from './Templates/LegendRing.html';
+import LegendDotTemplate from './Templates/LegendDot.html';
 
 export default class extends Module {
     constructor(args) {
@@ -14,28 +17,18 @@ export default class extends Module {
         this.target.classList.add('legend');
         this.target.setAttribute('data-label', this.label);
         this.target.setAttribute('data-quadrant', this.index);
-        let html = `<h1>${this.label}</h1>`;
-        html += '<div class="label-container">';
-        for (let i = 0; i < this.dots.length; i++) {
-            if (i === 0 || i === 2)
-                html += '<div class="ring-column">';
+        this.target.innerHTML = LegendTemplate({
+            scope: {
+                legend: this,
+                radar: this.radar,
+                dots: this.dots,
+                ringTemplate: LegendRingTemplate,
+                dotTemplate: LegendDotTemplate
+            }
+        });
 
-            html += `<div class="ring-block" data-ring="${i}">`;
-            html += `<h2>${this.radar.rings.items[i].label}</h2>`;
-            html += '<ul>';
-            this.dots[i].forEach(dot => {
-                html += `<li><a href="" data-index="${dot.index}"><span class="">${dot.index + 1}</span>${dot.label}</a></li>`;
-            });
-            html += '</ul>';
-            html += '</div>';
-            if (i === 1 || i === 3)
-                html += '</div>';
-
-        }
-        html += '</div>';
-        this.target.innerHTML = html;
+        // add events to the buttons
         this.buttons = this.target.querySelectorAll('a');
-
         this.buttons.forEach(button => {
             button.onclick = e => {
                 e.preventDefault();
@@ -71,7 +64,7 @@ export default class extends Module {
             };
 
             button.select = e => {
-                button.classList.contains('selected') ? button.classList.remove('selected') :  button.classList.add('selected');
+                button.classList.contains('selected') ? button.classList.remove('selected') : button.classList.add('selected');
                 let index = false;
                 if (e) {
                     e.preventDefault();

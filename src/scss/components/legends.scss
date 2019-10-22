@@ -69,14 +69,18 @@
     }
 
     .label-container {
-      .ring-column {
+      min-height: 400px;
+      display: flex;
+      display: -webkit-flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+
+      .ring-block {
         width: 50%;
-        float: left;
-
-        .ring-block {
-        }
       }
-
     }
 
     &[data-quadrant] {
