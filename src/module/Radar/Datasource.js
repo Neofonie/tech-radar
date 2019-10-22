@@ -13,11 +13,13 @@ export default class extends Module {
             this.storage = localStorage;
             this.cache_age = 0;
 
-            this.serverMode = true;
-            this.protocol = 'http';
-            this.host = 'localhost';
-            this.port = 8200;
-            this.apiVersion = 'v1';
+            const radarOptions = window.RADAROPTIONS;
+
+            this.serverMode = this.radar.serverMode;
+            this.protocol = radarOptions.protocol || 'http';
+            this.host = radarOptions.host || 'localhost';
+            this.port = radarOptions.port || 8200;
+            this.apiVersion = radarOptions.apiVersion || 'v1';
 
             //
             if (this.serverMode === true) {

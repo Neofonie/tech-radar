@@ -19,6 +19,14 @@ export default class extends Module {
         super();
         return new Promise((resolve, reject) => {
             this.label = 'RADAR';
+
+            // set the server mode on or off here
+            // or with a window global variable RADAROPTIONS.serverMode
+            this.serverMode = false;
+            if(window.RADAROPTIONS)
+                if(window.RADAROPTIONS.serverMode)
+                    this.serverMode = RADAROPTIONS.serverMode;
+
             this.controls = new Controls(this);
 
             // init the datasource
@@ -28,9 +36,8 @@ export default class extends Module {
             new Datasource(this)
                 .then(datasource => {
                     this.dataSource = datasource;
-
-                    this.selectedRadar = this.dataSource.selectedRadar;   // empty on init
-                    this.data = this.dataSource.data;       // empty on init
+                    this.selectedRadar = this.dataSource.selectedRadar;     // empty on init
+                    this.data = this.dataSource.data;                       // empty on init
 
                     // we need the data index
                     this.menu = new Menu(this);
