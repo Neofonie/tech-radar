@@ -95,6 +95,10 @@ body {
     border-bottom-color: $color-secondary;
     width: 400px;
 
+    .radar {
+      border-bottom-color:$color-chalk;
+    }
+
     .open {
       font-size: 16px;
       line-height: 40px;
