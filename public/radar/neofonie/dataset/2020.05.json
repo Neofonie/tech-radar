@@ -275,17 +275,10 @@
     },
     {
         "quadrant": 1,
-        "ring": 1,
-        "label": "CSS-in-JS",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 1,
-        "ring": 1,
+        "ring": 0,
         "label": "CSS Grid",
         "active": false,
-        "moved": 0
+        "moved": 1
     },
     {
         "quadrant": 1,
@@ -318,14 +311,21 @@
     {
         "quadrant": 1,
         "ring": 2,
-        "label": "CSSnext",
+        "label": "Deno",
         "active": false,
-        "moved": 0
+        "moved": 1
     },
     {
         "quadrant": 1,
         "ring": 1,
         "label": "StencilJS",
+        "active": false,
+        "moved": 1
+    },
+    {
+        "quadrant": 1,
+        "ring": 1,
+        "label": "Storybook",
         "active": false,
         "moved": 1
     },
@@ -338,10 +338,10 @@
     },
     {
         "quadrant": 1,
-        "ring": 2,
+        "ring": 1,
         "label": "Typescript",
         "active": false,
-        "moved": 0
+        "moved": 1
     },
     {
         "quadrant": 1,
@@ -366,7 +366,7 @@
     },
     {
         "quadrant": 1,
-        "ring": 2,
+        "ring": 3,
         "label": "Yarn",
         "active": false,
         "moved": -1
@@ -388,20 +388,6 @@
     {
         "quadrant": 1,
         "ring": 3,
-        "label": "Backbone",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 1,
-        "ring": 3,
-        "label": "Bower",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 1,
-        "ring": 3,
         "label": "Grunt",
         "active": false,
         "moved": 0
@@ -417,13 +403,6 @@
         "quadrant": 1,
         "ring": 3,
         "label": "Less",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 1,
-        "ring": 3,
-        "label": "Coffeescript",
         "active": false,
         "moved": 0
     },
