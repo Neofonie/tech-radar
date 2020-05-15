@@ -641,7 +641,7 @@
     },
     {
         "quadrant": 3,
-        "ring": 0,
+        "ring": 1,
         "label": "smarty",
         "active": false,
         "moved": -1
@@ -697,17 +697,24 @@
     },
     {
         "quadrant": 3,
-        "ring": 3,
-        "label": "Zend",
+        "ring": 1,
+        "label": "PostgreSQL",
         "active": false,
         "moved": 0
     },
     {
         "quadrant": 3,
-        "ring": 1,
-        "label": "PostgreSQL",
+        "ring": 2,
+        "label": "Spryker",
         "active": false,
-        "moved": 0
+        "moved": 1
+    },
+    {
+        "quadrant": 3,
+        "ring": 2,
+        "label": "ez Platform",
+        "active": false,
+        "moved": 1
     },
     {
         "quadrant": 3,
