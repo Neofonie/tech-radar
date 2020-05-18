@@ -451,6 +451,13 @@
     {
         "quadrant": 2,
         "ring": 0,
+        "label": "Ansible",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 2,
+        "ring": 0,
         "label": "Debian",
         "active": false,
         "moved": 0
@@ -507,7 +514,21 @@
     {
         "quadrant": 2,
         "ring": 1,
+        "label": "Harbor",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 2,
+        "ring": 1,
         "label": "Jetty",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 2,
+        "ring": 1,
+        "label": "ProxySQL",
         "active": false,
         "moved": 0
     },
