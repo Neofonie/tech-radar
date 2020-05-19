@@ -2,6 +2,13 @@
     {
         "quadrant": 0,
         "ring": 0,
+        "label": "Amazon Sagemaker",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 0,
         "label": "Apache Kafka",
         "active": false,
         "moved": 0
@@ -16,9 +23,44 @@
     {
         "quadrant": 0,
         "ring": 0,
-        "label": "Tableau",
+        "label": "Keras",
         "active": false,
         "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 0,
+        "label": "OpenNLP",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 0,
+        "label": "Scala",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 0,
+        "label": "Scrapy",
+        "active": false,
+        "moved": 1
+    },
+    {
+        "quadrant": 0,
+        "ring": 0,
+        "label": "txtwerk",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 0,
+        "label": "Language Models (Bert, Flair)",
+        "active": false,
+        "moved": 1
     },
     {
         "quadrant": 0,
@@ -37,84 +79,56 @@
     {
         "quadrant": 0,
         "ring": 1,
-        "label": "Apache Beam",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 1,
         "label": "Apache Zeppelin",
         "active": false,
         "moved": 0
     },
     {
         "quadrant": 0,
-        "ring": 3,
-        "label": "Ontotext GraphDB",
+        "ring": 1,
+        "label": "Jupyter",
         "active": false,
-        "moved": 0
+        "moved": 1
     },
     {
         "quadrant": 0,
-        "ring": 3,
-        "label": "Apache Flume",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 3,
-        "label": "Virtuoso",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 3,
-        "label": "Apache Pig",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 0,
-        "label": "Amazon Sagemaker",
+        "ring": 1,
+        "label": "TensorFlow",
         "active": false,
         "moved": 0
     },
     {
         "quadrant": 0,
         "ring": 1,
-        "label": "R",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 3,
-        "label": "Clojure",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 0,
-        "label": "Scala",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 2,
         "label": "AWS ML / Lambda",
         "active": false,
+        "moved": 1
+    },
+    {
+        "quadrant": 0,
+        "ring": 2,
+        "label": "AllenNLP",
+        "active": false,
         "moved": 0
     },
     {
         "quadrant": 0,
         "ring": 2,
-        "label": "Microsoft Azure AI",
+        "label": "Stanza NLP",
+        "active": false,
+        "moved": 1
+    },
+    {
+        "quadrant": 0,
+        "ring": 2,
+        "label": "Deeplearning4j",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 2,
+        "label": "Fast.AI",
         "active": false,
         "moved": 0
     },
@@ -128,84 +142,7 @@
     {
         "quadrant": 0,
         "ring": 2,
-        "label": "Jupyter",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 0,
-        "label": "MXNet",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 0,
-        "label": "OpenNLP",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 0,
-        "label": "Keras",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 1,
-        "label": "Mallet",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 1,
-        "label": "TensorFlow",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 1,
-        "label": "Theano",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 1,
-        "label": "Scrapy",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 1,
-        "label": "Tesseract",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 2,
-        "label": "Deeplearning4j",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 2,
-        "label": "AllenNLP",
-        "active": false,
-        "moved": 0
-    },
-    {
-        "quadrant": 0,
-        "ring": 2,
-        "label": "Fast.AI",
+        "label": "Microsoft Azure AI",
         "active": false,
         "moved": 0
     },
@@ -225,10 +162,45 @@
     },
     {
         "quadrant": 0,
-        "ring": 0,
-        "label": "txtwerk",
+        "ring": 3,
+        "label": "Apache Flume",
         "active": false,
         "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 3,
+        "label": "Apache Pig",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 3,
+        "label": "Clojure",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 3,
+        "label": "Ontotext GraphDB",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 3,
+        "label": "Virtuoso",
+        "active": false,
+        "moved": 0
+    },
+    {
+        "quadrant": 0,
+        "ring": 3,
+        "label": "R",
+        "active": false,
+        "moved": -1
     },
     {
         "quadrant": 1,
