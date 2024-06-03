@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Neofonie Tech Radar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" href="css/app.css" as="style">
+  <link rel="preload" href="css/dark.css" as="style">
+  <link rel="preload" href="css/fonts/exo-webfont/Exo-Medium.woff2" as="font">
+  <link rel="preload" href="js/radar.js" as="script">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://www.neofonie.de/favicon.ico">
+</head>
+<body class="loading">
+<header class="header">
+  <div class="company">
+    <a href="https://www.neofonie.de" target="_blank">Neofonie<span class="claim">Tech Radar</span></a>
+  </div>
+</header>
+<main class="content"></main>
+<footer class="footer">
+  <i>Neofonie</i> 2023
+</footer>
+<script src="js/radar.js"></script>
+<script type="module">
+  /**
+   * after reading the js/radar.js, it exists a
+   * global object, called "RADAR".
+   * this object will be overwritten
+   * with the created radar object.
+   * accessible at "window.RADAR"
+   */
+
+  // this is the global radar options object
+  const radarOptions = {
+      serverMode: false,
+      protocol: 'http',
+      host: 'localhost',
+      port: 8200,
+      apiVersion: 'v1'
+    };
+
+  new RADAR(radarOptions).then(radar => {
+    window.RADAR = radar;
+  });
+</script>
+</body>
+</html>
