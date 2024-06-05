@@ -27,14 +27,10 @@
             },
             {
                 "label": "AWS",
-                "moved": 1
-            },
-            {
-                "label": "Debian",
                 "moved": 0
             },
             {
-                "label": "Ubuntu",
+                "label": "Debian",
                 "moved": 0
             },
             {
@@ -60,9 +56,37 @@
             {
                 "label": "Traefik",
                 "moved": 0
+            },
+            {
+                "label": "Graylog",
+                "moved": 1
+            },
+            {
+                "label": "Harbor",
+                "moved": 1
+            },
+            {
+                "label": "Helm",
+                "moved": 1
+            },
+            {
+                "label": "Podman",
+                "moved": 1
+            },
+            {
+                "label": "Vault",
+                "moved": 1
+            },
+            {
+                "label": "Caddy",
+                "moved": 1
             }
         ],
         "trial": [
+            {
+                "label": "k6",
+                "moved": 1
+            },
             {
                 "label": "Prometheus",
                 "moved": 0
@@ -77,18 +101,11 @@
             },
             {
                 "label": "Terraform",
-                "moved": 1
+                "moved": 0
             }
         ],
         "assess": [
-            {
-                "label": "Graylog",
-                "moved": 1
-            },
-            {
-                "label": "Harbor",
-                "moved": -1
-            },
+
             {
                 "label": "Gradle",
                 "moved": 0
@@ -101,7 +118,7 @@
         "hold": [
             {
                 "label": "Zabbix",
-                "moved": -1
+                "moved": 0
             },
             {
                 "label": "Consul",
@@ -109,7 +126,10 @@
             },
             {
                 "label": "Docker Swarm",
-                "moved": -1
+                "moved": 0
+            },{
+                "label": "curiefense",
+                "moved": 1
             }
         ]
     },
