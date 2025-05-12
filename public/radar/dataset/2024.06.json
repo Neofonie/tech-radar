@@ -416,7 +416,7 @@
                 "moved": 0
             },
             {
-                "label": "Elasticsearch",
+                "label": "Opensearch",
                 "moved": 0
             },
             {
@@ -438,17 +438,13 @@
             {
                 "label": "Swagger",
                 "moved": 0
+            },
+            {
+                "label": "Satis",
+                "moved": 0
             }
         ],
         "trial": [
-            {
-                "label": "Satis",
-                "moved": -1
-            },
-            {
-                "label": "Casandra",
-                "moved": 0
-            },
             {
                 "label": "PHP Code Sniffer",
                 "moved": 0
@@ -471,10 +467,6 @@
         "hold": [
             {
                 "label": "Shopware 5",
-                "moved": -1
-            },
-            {
-                "label": "Smarty",
                 "moved": -1
             }
         ]
