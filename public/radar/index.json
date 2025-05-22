@@ -3,9 +3,9 @@
         "id": "neofonie",
         "label": "Neofonie",
         "is_default": true,
-        "version": "2024.06",
+        "version": "2025.05",
         "versions": [
-            "2024.06"
+            "2025.05"
         ]
     }
 ]
