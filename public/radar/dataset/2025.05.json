@@ -320,13 +320,13 @@
             {
                 "label": "Spring Boot",
                 "moved": 0
+            },
+            {
+                "label": "Apache kafka",
+                "moved": 1
             }
         ],
         "trial": [
-            {
-                "label": "Apache kafka",
-                "moved": 0
-            },
             {
                 "label": "AWS Lambda",
                 "moved": 0
@@ -341,10 +341,6 @@
             },
             {
                 "label": "Testcontainers",
-                "moved": 0
-            },
-            {
-                "label": "Thymeleaf",
                 "moved": 0
             }
         ],
