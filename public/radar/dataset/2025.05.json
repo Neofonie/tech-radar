@@ -230,6 +230,10 @@
             {
                 "label": "GraphQL",
                 "moved": 0
+            },
+            {
+                "label": "Shopify",
+                "moved": 0
             }
         ],
         "hold": [
@@ -263,10 +267,6 @@
             },
             {
                 "label": "yarn",
-                "moved": -1
-            },
-            {
-                "label": "Shopify / Hydrogen",
                 "moved": -1
             }
         ]
