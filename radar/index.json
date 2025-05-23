@@ -1,0 +1,11 @@
+[
+    {
+        "id": "neofonie",
+        "label": "Neofonie",
+        "is_default": true,
+        "version": "2025.05",
+        "versions": [
+            "2025.05"
+        ]
+    }
+]
